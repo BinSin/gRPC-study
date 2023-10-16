@@ -1,0 +1,8 @@
+dependencies {
+	implementation project(':proto')
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'net.devh:grpc-client-spring-boot-starter:2.15.0.RELEASE'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+}
