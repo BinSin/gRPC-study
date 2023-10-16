@@ -5,8 +5,6 @@ spring:
     name: grpc-client
 grpc:
   client:
-    my-service:
+    server1:
       address: 'static://127.0.0.1:9090'
       negotiation-type: plaintext
-#      enable-keep-alive: true
-#      keep-alive-without-calls: true

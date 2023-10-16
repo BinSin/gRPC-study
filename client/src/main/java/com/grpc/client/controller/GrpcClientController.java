@@ -12,9 +12,19 @@ public class GrpcClientController {
 
   private final GrpcClientService grpcClientService;
 
-  @GetMapping("/test")
-  public String printMessage(@RequestParam(name = "name") String name) {
-    return grpcClientService.receiveGreeting(name);
+  @GetMapping("/hello")
+  public String sayHello(@RequestParam(name = "name") String name) {
+    return grpcClientService.sayHello(name);
+  }
+
+  @GetMapping("/bye")
+  public String sayBye(@RequestParam(name = "name") String name) {
+    return grpcClientService.sayBye(name);
+  }
+
+  @GetMapping("/sum")
+  public int getSum(@RequestParam(name = "num1") int num1, @RequestParam(name = "num2") int num2) {
+    return grpcClientService.getSum(num1, num2);
   }
 
 }

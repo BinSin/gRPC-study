@@ -1,24 +1,44 @@
 package com.grpc.client.service;
 
-import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
-import net.devh.boot.grpc.examples.lib.HelloRequest;
-import net.devh.boot.grpc.examples.lib.MyServiceGrpc.MyServiceBlockingStub;
+import net.devh.boot.grpc.message.lib.MessageRequest;
+import net.devh.boot.grpc.message.lib.MessageServiceGrpc.MessageServiceBlockingStub;
+import net.devh.boot.grpc.sum.lib.SumRequest;
+import net.devh.boot.grpc.sum.lib.SumServiceGrpc.SumServiceBlockingStub;
 import org.springframework.stereotype.Service;
 
 @Service
-@Slf4j
 public class GrpcClientService {
 
-  @GrpcClient("my-service")
-  private MyServiceBlockingStub myServiceStub;
+  @GrpcClient("server1") // yml에 설정한 명칭와 일치해야 한다!!
+  private MessageServiceBlockingStub messageServiceStub;
 
-  public String receiveGreeting(String name) {
-    HelloRequest request = HelloRequest.newBuilder()
+  @GrpcClient("server1")
+  private SumServiceBlockingStub sumServiceStub;
+
+  public String sayHello(String name) {
+    MessageRequest request = MessageRequest.newBuilder()
         .setName(name)
         .build();
 
-    return myServiceStub.sayHello(request).getMessage();
+    return messageServiceStub.sayHello(request).getMessage();
+  }
+
+  public String sayBye(String name) {
+    MessageRequest request = MessageRequest.newBuilder()
+        .setName(name)
+        .build();
+
+    return messageServiceStub.sayBye(request).getMessage();
+  }
+
+  public int getSum(int num1, int num2) {
+    SumRequest request = SumRequest.newBuilder()
+        .setNum1(num1)
+        .setNum2(num2)
+        .buildPartial();
+
+    return sumServiceStub.sum(request).getSum();
   }
 
 }

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "net.devh.boot.grpc.message.lib";
+option java_outer_classname = "MessageProto";
+
+// The greeting service definition.
+service MessageService {
+  // Sends a greeting
+  rpc SayHello (MessageRequest) returns (MessageReply);
+  rpc SayBye (MessageRequest) returns (MessageReply);
+}
+
+// The request message containing the user's name.
+message MessageRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message MessageReply {
+  string message = 1;
+}
