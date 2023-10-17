@@ -1,9 +1,6 @@
 # gRPC with Spring Boot
 
 ## 환경
-
----
-
 - Multimodule
   - proto
     - proto 파일에 대한 stub class를 생성해 놓는 모듈
@@ -13,8 +10,6 @@
     - gRPC 통신을 받는 모듈
 
 ## Proto
-
----
 
 ### 주요 세팅
 
@@ -48,11 +43,9 @@
 
 - CalcService.proto
   - 위와 동일하게 계산식을 구하는 서비스에 대한 proto 파일
-- **g**r**adle build 를 통해 stub class 생성**
+- **gradle build 를 통해 stub class 생성**
 
 ## Server
-
----
 
 ### 주요 세팅
 
@@ -115,8 +108,6 @@
   - 위와 동일하게 세팅
 
 ## Client
-
----
 
 - application.yml
 
