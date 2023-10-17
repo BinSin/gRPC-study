@@ -5,9 +5,9 @@
   - proto
     - proto 파일에 대한 stub class를 생성해 놓는 모듈
   - client
-    - gRPC 통신을 하는 모듈
+    - gRPC 통신 클라이언트
   - server
-    - gRPC 통신을 받는 모듈
+    - gRPC 통신 서버
 
 ## Proto
 
