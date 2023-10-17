@@ -22,9 +22,10 @@ public class GrpcClientController {
     return grpcClientService.sayBye(name);
   }
 
-  @GetMapping("/sum")
-  public int getSum(@RequestParam(name = "num1") int num1, @RequestParam(name = "num2") int num2) {
-    return grpcClientService.getSum(num1, num2);
+  @GetMapping("/calc")
+  public String getSum(@RequestParam(name = "num1") int num1,
+      @RequestParam(name = "num2") int num2) {
+    return grpcClientService.getCalc(num1, num2);
   }
 
 }

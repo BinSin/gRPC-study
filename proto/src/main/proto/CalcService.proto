@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "net.devh.boot.grpc.calc.lib";
+option java_outer_classname = "CalcProto";
+
+service CalcService {
+  rpc calc (CalcRequest) returns (CalcReply);
+}
+
+message CalcRequest {
+  int32 num1 = 1;
+  int32 num2 = 2;
+}
+
+message CalcReply {
+  int32 sum = 1;
+  int32 minus = 2;
+  int32 multiply = 3;
+  double divide = 4;
+}
